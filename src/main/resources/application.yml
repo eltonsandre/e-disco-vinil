@@ -1,0 +1,27 @@
+server.port: 8080
+
+com.spotify:
+  oauth:
+    cliente_id: 2410dad2ce8c460e984c2434d6a1a5b6
+    cliente_secret: fadd0a1714e94455b58e6ba8fc484f71
+    accesstoken: MjQxMGRhZDJjZThjNDYwZTk4NGMyNDM0ZDZhMWE1YjY6ZmFkZDBhMTcxNGU5NDQ1NWI1OGU2YmE4ZmM0ODRmNzE=
+
+spring:
+
+  application.name: e-disco-vinil-api
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:./disco-vinil-data
+    username: sa
+#    password: null
+    platform: h2-dev
+    continue-on-error: true
