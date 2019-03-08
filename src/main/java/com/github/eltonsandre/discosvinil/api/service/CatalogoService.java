@@ -25,4 +25,14 @@ public class CatalogoService {
 		return null;
 	}
 
+	/**
+	 * <code><pre></pre></code>
+	 * 
+	 * @param al void
+	 */
+	public void salvar(final Disco disco) {
+		// TODO Auto-generated method stub
+
+	}
+
 }

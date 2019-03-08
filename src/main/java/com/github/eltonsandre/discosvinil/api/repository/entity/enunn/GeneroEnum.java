@@ -24,16 +24,17 @@ public enum GeneroEnum {
 	CLASSIC(3, "classic"), //
 	ROCK(4, "rock");
 
-	private static Map<String, GeneroEnum> map = new HashMap<>();
+	public static final Map<String, GeneroEnum> MAP;
 
 	static {
-		EnumSet.allOf(GeneroEnum.class).forEach(day -> map.put(day.descricao, day));
+		MAP = new HashMap<>();
+		EnumSet.allOf(GeneroEnum.class).forEach(day -> MAP.put(day.descricao, day));
 	}
 
 	private int id;
 	private String descricao;
 
 	public static GeneroEnum keyOf(final String descricao) {
-		return map.get(descricao);
+		return MAP.get(descricao);
 	}
 }

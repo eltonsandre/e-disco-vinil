@@ -1,17 +1,27 @@
 {"properties": [
   {
-    "name": "com.spotify.oauth.cliente_id",
+    "name": "com.spotify.api.url-base",
     "type": "java.lang.String",
-    "description": "A description for 'com.spotify.oauth.cliente_id'"
+    "description": "A description for 'com.spotify.api.url-base'"
   },
   {
-    "name": "com.spotify.oauth.cliente_secret",
+    "name": "com.spotify.api.oauth.url-token",
     "type": "java.lang.String",
-    "description": "A description for 'com.spotify.oauth.cliente_secret'"
+    "description": "A description for 'com.spotify.api.oauth.url-token'"
   },
   {
-    "name": "com.spotify.oauth.accesstoken",
+    "name": "com.spotify.api.oauth.cliente_secret",
     "type": "java.lang.String",
-    "description": "A description for 'com.spotify.oauth.accesstoken'"
+    "description": "A description for 'com.spotify.api.oauth.cliente_secret'"
+  },
+  {
+    "name": "com.spotify.api.oauth.cliente_id",
+    "type": "java.lang.String",
+    "description": "A description for 'com.spotify.api.oauth.cliente_id'"
+  },
+  {
+    "name": "com.spotify.api.oauth.access-token",
+    "type": "java.lang.String",
+    "description": "A description for 'com.spotify.api.oauth.access-token'"
   }
 ]}
