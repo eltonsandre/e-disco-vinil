@@ -17,8 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.eltonsandre.discosvinil.api.model.VendaFiltro;
+import com.github.eltonsandre.discosvinil.api.model.entity.Venda;
 import com.github.eltonsandre.discosvinil.api.repository.VendaRepository;
-import com.github.eltonsandre.discosvinil.api.repository.entity.Venda;
+import com.github.eltonsandre.discosvinil.api.service.VendaService;
 
 /**
  * - ○ Consultar todas as vendas efetuadas de forma paginada, filtrando pelo range de datas (inicial e final)
@@ -34,6 +35,9 @@ import com.github.eltonsandre.discosvinil.api.repository.entity.Venda;
 public class VendaResource {
 
 	@Autowired
+	private VendaService vendaService;
+
+	@Autowired
 	private VendaRepository vendaRepository;
 
 	/**
@@ -46,8 +50,7 @@ public class VendaResource {
 	 */
 	@GetMapping
 	public Page<Venda> pesquisar(final VendaFiltro filtro, final Pageable pageable) {
-		// return this.vendaRepository.filtrar(filtro, pageable);
-		return null;
+		return this.vendaRepository.filtrar(filtro, pageable);
 	}
 
 	/**
@@ -69,8 +72,8 @@ public class VendaResource {
 	 * @return ResponseEntity<Venda>
 	 */
 	@PostMapping
-	public ResponseEntity<Venda> criar(@Valid @RequestBody final Venda venda) {
-		Venda vendaSalvo = this.vendaRepository.save(venda);
+	public ResponseEntity<Venda> criar(@Valid @RequestBody final Venda venda, final Pageable pageable) {
+		Venda vendaSalvo = this.vendaService.salvar(venda, pageable);
 		return ResponseEntity.status(HttpStatus.CREATED).body(vendaSalvo);
 	}
 

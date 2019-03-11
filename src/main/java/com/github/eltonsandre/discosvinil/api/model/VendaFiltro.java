@@ -2,6 +2,8 @@ package com.github.eltonsandre.discosvinil.api.model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +14,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class VendaFiltro {
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataInicial;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataFinal;
 }

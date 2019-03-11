@@ -1,8 +1,10 @@
-package com.github.eltonsandre.discosvinil.api.repository.entity.enunn;
+package com.github.eltonsandre.discosvinil.api.model.entity.enumeration;
 
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,6 +37,6 @@ public enum GeneroEnum {
 	private String descricao;
 
 	public static GeneroEnum keyOf(final String descricao) {
-		return MAP.get(descricao);
+		return MAP.get(StringUtils.lowerCase(descricao));
 	}
 }

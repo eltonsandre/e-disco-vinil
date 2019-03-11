@@ -1,4 +1,4 @@
-package com.github.eltonsandre.discosvinil.api.repository.entity;
+package com.github.eltonsandre.discosvinil.api.model.entity;
 
 import java.io.Serializable;
 
@@ -7,8 +7,8 @@ import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import com.github.eltonsandre.discosvinil.api.repository.entity.enunn.DiaSemanaEnum;
-import com.github.eltonsandre.discosvinil.api.repository.entity.enunn.GeneroEnum;
+import com.github.eltonsandre.discosvinil.api.model.entity.enumeration.DiaSemanaEnum;
+import com.github.eltonsandre.discosvinil.api.model.entity.enumeration.GeneroEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -26,7 +26,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = { "diaSemana", "genero" })
-public class CashbackPK implements Serializable {
+public class CashbackID implements Serializable {
 
 	/**
 	 * Atributo serialVersionUID

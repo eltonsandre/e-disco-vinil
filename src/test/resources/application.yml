@@ -1,8 +1,4 @@
-server.port: 8080
-
 spring:
-  application.name: e-disco-vinil-api
-  
   jackson.default-property-inclusion: non-null
   jackson.deserialization:
     fail-on-ignored-properties: false
@@ -17,7 +13,7 @@ spring:
   
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:./disco-vinil-data
+    url: jdbc:h2:./disco-vinil-data-test
     username: sa
     platform: h2-dev
     continue-on-error: false

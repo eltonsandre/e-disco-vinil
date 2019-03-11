@@ -2,6 +2,8 @@ package com.github.eltonsandre.discosvinil.api;
 
 import java.nio.charset.Charset;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,8 +24,10 @@ import com.github.eltonsandre.discosvinil.api.service.InicializarDadosService;
 @SpringBootApplication
 public class ApiApplication {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(ApiApplication.class);
+
 	/**
-	 * Atributo CHARSET_UTF8
+	 * Atributo CHARSET_UTF8 Charset defaultCharset
 	 */
 	public static Charset CHARSET_UTF8 = Charset.defaultCharset();
 
@@ -33,7 +37,8 @@ public class ApiApplication {
 	public static void main(final String[] args) {
 		// SpringApplication.run(ApiApplication.class, args);
 		ConfigurableApplicationContext context = SpringApplication.run(ApiApplication.class, args);
-		context.getBean(InicializarDadosService.class).gerarDados(5);
+
+		context.getBean(InicializarDadosService.class).gerarDados(20);
 	}
 
 	/**
@@ -46,6 +51,7 @@ public class ApiApplication {
 
 		rest.getMessageConverters().add(new StringHttpMessageConverter(CHARSET_UTF8));
 		rest.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+		LOGGER.debug("@Bean restTemplateClient");
 		return rest;
 	}
 

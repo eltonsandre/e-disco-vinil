@@ -25,7 +25,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.github.eltonsandre.discosvinil.api.repository.entity.enunn.GeneroEnum;
+import com.github.eltonsandre.discosvinil.api.model.entity.enumeration.GeneroEnum;
 import com.github.eltonsandre.discosvinil.api.service.client.spotify.model.Album;
 import com.github.eltonsandre.discosvinil.api.service.client.spotify.model.PageSearch;
 

@@ -1,4 +1,4 @@
-package com.github.eltonsandre.discosvinil.api.repository.entity;
+package com.github.eltonsandre.discosvinil.api.model.entity;
 
 import java.math.BigDecimal;
 
@@ -27,7 +27,7 @@ import lombok.Setter;
 public class Cashback {
 
 	@EmbeddedId
-	private CashbackPK id;
+	private CashbackID id;
 
 	@Column(name = "porcentagem", nullable = false)
 	private BigDecimal porcentagem;

@@ -1,4 +1,4 @@
-package com.github.eltonsandre.discosvinil.api.repository.entity.enunn;
+package com.github.eltonsandre.discosvinil.api.model.entity.enumeration;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,14 +10,15 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum DiaSemanaEnum {
-
-	DOMINGO(1, "domingo"),// @formatter:off
-	SEGUNDA(2, "segunda"),
-	TERCA(3, "terca"),
-	QUARTA(4, "quarta"),
-	QUINTA(5, "quinta"),
-	SEXTA(6, "sexta"),
-	SABADO(7, "sabado");// @formatter:on
+	// @formatter:off
+	SEGUNDA(1, "segunda"),
+	TERCA(2, "terca"),
+	QUARTA(3, "quarta"),
+	QUINTA(4, "quinta"),
+	SEXTA(5, "sexta"),
+	SABADO(6, "sabado"),
+	DOMINGO(7, "domingo");
+	// @formatter:on
 
 	private int id;
 	private String descricao;

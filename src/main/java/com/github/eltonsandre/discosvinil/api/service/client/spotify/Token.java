@@ -29,7 +29,7 @@ public class Token {
 	private LocalDateTime expireTime = LocalDateTime.now();
 
 	public boolean isValid() {
-		return this.expireTime.plus(this.expiresIn, ChronoField.MILLI_OF_DAY.getBaseUnit()).isBefore(LocalDateTime.now());
+		return this.expireTime.plus(this.expiresIn, ChronoField.MILLI_OF_DAY.getBaseUnit()).isAfter(LocalDateTime.now());
 	}
 
 }

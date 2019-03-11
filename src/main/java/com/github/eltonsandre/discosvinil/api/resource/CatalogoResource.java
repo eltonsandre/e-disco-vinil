@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.eltonsandre.discosvinil.api.model.DiscoFiltro;
+import com.github.eltonsandre.discosvinil.api.model.entity.Disco;
 import com.github.eltonsandre.discosvinil.api.repository.CatalogoRepository;
-import com.github.eltonsandre.discosvinil.api.repository.entity.Disco;
 import com.github.eltonsandre.discosvinil.api.service.CatalogoService;
 
 /**
@@ -43,13 +44,12 @@ public class CatalogoResource {
 	 * @return Page<Lancamento>
 	 */
 	@GetMapping
-	public Page<Disco> pesquisar(final String filtro, final Pageable pageable) {
+	public Page<Disco> pesquisar(final DiscoFiltro filtro, final Pageable pageable) {
 		return this.catalogoService.filtrar(filtro, pageable);
 	}
 
 	/**
 	 * - ○ Consultar o disco pelo seu identificador; <br />
-	 * <code><pre></pre></code>
 	 *
 	 * @param codigo
 	 * @return ResponseEntity<Lancamento>
