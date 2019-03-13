@@ -1,6 +1,15 @@
 # e-disco-vinil
 *programa de fidelidade baseado em cashback* para aumentar o volume de vendas e conquistar novos clientes.
 
+
+Código da API implantada no Heroku: em https://discos-vinil-api.herokuapp.com/
+exemplo:
+https://discos-vinil-api.herokuapp.com/catalogo?name=rock&genero=rock&page=0&size=20
+
+possui também um front-end em Angular como client UI
+https://wmairzwm.github.stackblitz.io/catalogos
+
+
 ## Construindo e executando:
 
 ```java
@@ -8,6 +17,13 @@
 mvn install -U
 ```
 
+## DOCKER
+```java
+
+docker build -t eltonsandre/disco-vinil-api:1.0.0 .
+
+docker run -p 8080:8080 -t eltonsandre/disco-vinil-api:1.0.0 
+```
 
 ### Documentação
 
