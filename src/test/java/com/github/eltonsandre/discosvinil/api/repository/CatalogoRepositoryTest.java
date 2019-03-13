@@ -64,6 +64,7 @@ public class CatalogoRepositoryTest {
 
 	static DiscoFiltro criarFiltro() {
 		DiscoFiltro discoFiltro = new DiscoFiltro();
+		//		discoFiltro.setGenero(GeneroEnum.ROCK);
 		discoFiltro.setGenero("rock");
 		discoFiltro.setNome("rock star");
 

@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -21,15 +23,21 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum GeneroEnum {
 
+	@JsonProperty("pop")
 	POP(1, "pop"), //
+
+	@JsonProperty("mpb")
 	MPB(2, "mpb"), //
+
+	@JsonProperty("classic")
 	CLASSIC(3, "classic"), //
+
+	@JsonProperty("rock")
 	ROCK(4, "rock");
 
-	public static final Map<String, GeneroEnum> MAP;
+	public static final Map<String, GeneroEnum> MAP = new HashMap<>();
 
 	static {
-		MAP = new HashMap<>();
 		EnumSet.allOf(GeneroEnum.class).forEach(day -> MAP.put(day.descricao, day));
 	}
 

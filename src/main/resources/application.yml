@@ -4,8 +4,6 @@ spring:
   application.name: e-disco-vinil-api
   
   jackson.default-property-inclusion: non-null
-  jackson.deserialization:
-    fail-on-ignored-properties: false
   
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect

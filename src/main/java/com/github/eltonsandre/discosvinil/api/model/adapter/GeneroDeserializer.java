@@ -3,20 +3,25 @@ package com.github.eltonsandre.discosvinil.api.model.adapter;
 import java.io.IOException;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.github.eltonsandre.discosvinil.api.model.entity.enumeration.GeneroEnum;
 
 /**
  * @author <a href="mailto:elton.santos.andre@gmail.com">Elton S. André</a>
  * @date 9 de mar de 2019 19:36:41
  */
-@Component
-public class GeneroDeserializer extends JsonDeserializer<GeneroEnum> {
+public class GeneroDeserializer extends StdDeserializer<GeneroEnum> {
+	/**
+	 * @param vc
+	 */
+	protected GeneroDeserializer(final Class<GeneroEnum> vc) {
+		super(vc);
+	}
+
 	/**
 	 * Atributo serialVersionUID representa
 	 */

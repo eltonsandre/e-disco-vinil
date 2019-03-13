@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.github.eltonsandre.discosvinil.api.model.DiscoFiltro;
 import com.github.eltonsandre.discosvinil.api.model.entity.Disco;
-import com.github.eltonsandre.discosvinil.api.model.entity.enumeration.GeneroEnum;
 import com.github.eltonsandre.discosvinil.api.repository.CatalogoRepository;
 
 /**
@@ -21,17 +20,17 @@ public class CatalogoService {
 	private CatalogoRepository catalogoRepository;
 
 	/**
-	 * Consultar o catálogo de discos de forma paginada, filtrando por gênero e ordenando de forma crescente
-	 * pelo nome do disco;
+	 * Consultar o catálogo de discos de forma paginada, filtrando por gênero e ordenando de forma crescente pelo nome
+	 * do disco;
 	 *
 	 * @param filtro
 	 * @param pageable
 	 * @return Page<Album>
 	 */
 	public Page<Disco> filtrar(final DiscoFiltro filtro, final Pageable pageable) {
-		if (GeneroEnum.keyOf(org.apache.commons.lang3.StringUtils.lowerCase(filtro.getGenero())) == null) {
-			return null;
-		}
+		//		if (GeneroEnum.keyOf(org.apache.commons.lang3.StringUtils.lowerCase(filtro.getGenero())) == null) {
+		//			return null;
+		//		}
 		return this.catalogoRepository.filtrar(filtro, pageable);
 	}
 

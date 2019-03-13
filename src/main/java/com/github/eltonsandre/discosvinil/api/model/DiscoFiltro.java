@@ -13,6 +13,7 @@ public class DiscoFiltro {
 
 	private String nome;
 
+	//	@JsonDeserialize(using = GeneroDeserializer.class)
 	private String genero;
 
 	private List<Long> idDiscos;

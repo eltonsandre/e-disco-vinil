@@ -32,8 +32,7 @@ public class CatalogoRepositoryQueryImpl implements CatalogoRepositoryQuery {
 
 	/* (non-Javadoc)
 	 *
-	 * @see
-	 * com.github.eltonsandre.discosvinil.api.repository.query.CatalogoRepositoryQuery#filtrar(com.github.
+	 * @see com.github.eltonsandre.discosvinil.api.repository.query.CatalogoRepositoryQuery#filtrar(com.github.
 	 * eltonsandre.discosvinil.api.model.DiscoFiltro, org.springframework.data.domain.Pageable) */
 	@Override
 	public Page<Disco> filtrar(final DiscoFiltro filtro, final Pageable pageable) {
@@ -58,7 +57,8 @@ public class CatalogoRepositoryQueryImpl implements CatalogoRepositoryQuery {
 	 * @param root
 	 * @return Predicate[]
 	 */
-	private Predicate[] criarRestricoes(final DiscoFiltro filtro, final CriteriaBuilder builder, final Root<Disco> root) {
+	private Predicate[] criarRestricoes(final DiscoFiltro filtro, final CriteriaBuilder builder,
+			final Root<Disco> root) {
 		List<Predicate> predicates = new ArrayList<>();
 
 		if (!StringUtils.isEmpty(filtro.getNome())) {
@@ -68,6 +68,8 @@ public class CatalogoRepositoryQueryImpl implements CatalogoRepositoryQuery {
 		GeneroEnum genero = GeneroEnum.keyOf(org.apache.commons.lang3.StringUtils.lowerCase(filtro.getGenero()));
 		if (genero != null) {
 			predicates.add(builder.equal(root.get("genero"), genero));
+			//		if (filtro.getGenero() != null) {
+			//			predicates.add(builder.equal(root.get("genero"), filtro.getGenero()));
 		}
 		if (!CollectionUtils.isEmpty(filtro.getIdDiscos())) {
 			predicates.add(root.get("id").in(filtro.getIdDiscos()));
