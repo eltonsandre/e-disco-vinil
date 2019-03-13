@@ -38,7 +38,7 @@ public class ApiApplication {
 		// SpringApplication.run(ApiApplication.class, args);
 		ConfigurableApplicationContext context = SpringApplication.run(ApiApplication.class, args);
 
-		context.getBean(InicializarDadosService.class).gerarDados(20);
+		context.getBean(InicializarDadosService.class).gerarDados(50);
 	}
 
 	/**

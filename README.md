@@ -5,7 +5,7 @@
 
 ```java
 //usando o maven:  dentro do diretorio do projeto execute:
-mvn install -U -DskipTests
+mvn install -U
 ```
 
 
