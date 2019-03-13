@@ -28,11 +28,10 @@ public class DocSwagger2Config {
 
 	@Bean
 	public Docket apiDoc() {
-		String basePackage = new ApiApplication().getClass().getPackageName().toString();
-		LOGGER.debug("Documentação api: {}", basePackage);
 		return new Docket(DocumentationType.SWAGGER_2) // @formatter:off
 				 .select()
-		          .apis(RequestHandlerSelectors.basePackage(basePackage))
+		          .apis(RequestHandlerSelectors.basePackage(ApiApplication.class.getPackage().getName()))
+//		          .apis(RequestHandlerSelectors.basePackage("com.github.eltonsandre.discosvinil.api"))
 		          .paths(PathSelectors.any())
 		          .build()
 				  .apiInfo(this.metaData());
