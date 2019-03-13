@@ -1,4 +1,16 @@
 spring:
+  profiles:
+    active:
+    - test
+
+---
+spring:
+  profiles: test
+
+  application:
+
+    name: e-disco-vinil-api
+
   jackson.default-property-inclusion: non-null
   jackson.deserialization:
     fail-on-ignored-properties: false

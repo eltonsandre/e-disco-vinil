@@ -1,4 +1,5 @@
-FROM mgorbunov/alpine-jre11
+# FROM mgorbunov/alpine-jre11
+FROM docker.io/java:8u102-jre
 
 EXPOSE 8080:8080
 

@@ -16,8 +16,7 @@ import org.junit.Test;
 public class MonetaryUtilsTest {
 
 	/**
-	 * Test method for
-	 * {@link com.github.eltonsandre.discosvinil.api.util.MonetaryUtils#money(java.lang.String)}.
+	 * Test method for {@link com.github.eltonsandre.discosvinil.api.util.MonetaryUtils#money(java.lang.String)}.
 	 */
 	@Test
 	public void testMoney() {
@@ -49,8 +48,7 @@ public class MonetaryUtilsTest {
 	}
 
 	/**
-	 * Test method for
-	 * {@link com.github.eltonsandre.discosvinil.api.util.MonetaryUtils#rangeRandom(int, int)}.
+	 * Test method for {@link com.github.eltonsandre.discosvinil.api.util.MonetaryUtils#rangeRandom(int, int)}.
 	 */
 	@Test
 	public void testRangeRandom() {
@@ -58,15 +56,6 @@ public class MonetaryUtilsTest {
 			int rangeRandom = MonetaryUtils.rangeRandom(1, 10);
 			assertTrue(rangeRandom > 0 && rangeRandom < 11);
 		}
-	}
-
-	/**
-	 * Test method for
-	 * {@link com.github.eltonsandre.discosvinil.api.util.MonetaryUtils#currencyFormat(java.math.BigDecimal)}.
-	 */
-	@Test
-	public void testCurrencyFormat() {
-		assertTrue("R$20,00".equals(MonetaryUtils.currencyFormat(new BigDecimal(20.00))));
 	}
 
 }

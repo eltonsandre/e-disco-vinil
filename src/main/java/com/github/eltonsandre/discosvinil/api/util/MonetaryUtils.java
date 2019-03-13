@@ -27,7 +27,7 @@ public abstract class MonetaryUtils {
 			return ZERO;
 		}
 		BigDecimal valor = new BigDecimal(value.replace(",", ".")).setScale(2, RoundingMode.HALF_EVEN);
-		LOGGER.debug("valor: {}", currencyFormat(valor));
+		LOGGER.debug("valor: {}", NumberFormat.getCurrencyInstance().format(valor));
 		return valor;
 	}
 
@@ -35,8 +35,9 @@ public abstract class MonetaryUtils {
 	 * @return BigDecimal
 	 */
 	public static BigDecimal gerarValorRandom() {
-		BigDecimal valor = new BigDecimal(rangeRandom(20, 50) + "." + rangeRandom(0, 99)).setScale(2, RoundingMode.HALF_EVEN);
-		LOGGER.debug("valor: {}", currencyFormat(valor));
+		BigDecimal valor = new BigDecimal(rangeRandom(20, 50) + "." + rangeRandom(0, 99)).setScale(2,
+				RoundingMode.HALF_EVEN);
+		LOGGER.debug("valor: {}", NumberFormat.getCurrencyInstance().format(valor));
 		return valor;
 	}
 
@@ -50,12 +51,4 @@ public abstract class MonetaryUtils {
 		return rand.nextInt(max - min + 1) + min;
 	}
 
-	/**
-	 * @param valor
-	 * @return String
-	 */
-	public static String currencyFormat(final BigDecimal valor) {
-		// new java.text.DecimalFormat("¤ #,###,##0.00");
-		return NumberFormat.getCurrencyInstance().format(valor);
-	}
 }
