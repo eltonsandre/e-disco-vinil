@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "17a4c779-1106-4526-a50d-33303423ae08",
+		"name": "e Discos de Vinil",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "filtrar discos /catalogo?nome=a&genero=rock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/catalogo?nome=dark&genero=pop&page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalogo"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "dark"
+						},
+						{
+							"key": "genero",
+							"value": "pop"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				},
+				"description": "○ Consultar o catálogo de discos de forma paginada, filtrando por gênero e ordenando de forma crescente pelo nome do disco;"
+			},
+			"response": []
+		},
+		{
+			"name": "criar uma venda /vendas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"itens\": [\r\n        {\r\n            \"quantidade\": 2,\r\n            \"disco\": {\r\n                \"id\": 1\r\n            }\r\n        },\r\n                {\r\n            \"quantidade\": 3,\r\n            \"disco\": {\r\n                \"id\": 3\r\n            }\r\n        },\r\n        {\r\n            \"quantidade\": 1,\r\n            \"disco\": {\r\n                \"id\": 2\r\n            }\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/vendas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vendas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filtra vendas por data da venda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/vendas?dataInicial=2019-03-09&dataFinal=2019-03-20&page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vendas"
+					],
+					"query": [
+						{
+							"key": "dataInicial",
+							"value": "2019-03-09"
+						},
+						{
+							"key": "dataFinal",
+							"value": "2019-03-20"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				},
+				"description": "○ Consultar todas as vendas efetuadas de forma paginada, filtrando pelo range de datas (inicial e final) da venda e ordenando de forma decrescente pela data da venda"
+			},
+			"response": []
+		},
+		{
+			"name": "buscar disco pelo ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/catalogo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalogo",
+						"1"
+					]
+				},
+				"description": "Consultar o disco pelo seu identificador"
+			},
+			"response": []
+		}
+	]
+}
