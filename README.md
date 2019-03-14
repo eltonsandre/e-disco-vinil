@@ -44,3 +44,8 @@ docker run -p 8080:8080 -t eltonsandre/disco-vinil-api:1.0.0
 documentação pela api direto pelo Heroku https://discos-vinil-api.herokuapp.com/swagger-ui.html
 [link swagger localhost][http://localhost:8080/swagger-ui.html]
 
+
+Adicional front-end Angular https://github.com/eltonsandre/e-disco-vinil-ui
+livecode https://stackblitz.com/edit/discos-vinil-ui-github
+
+
