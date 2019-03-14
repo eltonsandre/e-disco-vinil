@@ -2,13 +2,13 @@ package com.github.eltonsandre.discosvinil.api.resource;
 
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,6 +36,8 @@ import com.github.eltonsandre.discosvinil.api.service.VendaService;
 @RequestMapping("/vendas")
 public class VendaResource {
 
+	private static final int MAXIMO_POR_PAGINA = 50;
+
 	@Autowired
 	private VendaService vendaService;
 
@@ -52,6 +54,9 @@ public class VendaResource {
 	 */
 	@GetMapping
 	public Page<Venda> pesquisar(final VendaFiltro filtro, final Pageable pageable) {
+		if (pageable.getPageSize() > MAXIMO_POR_PAGINA) {
+			return this.vendaRepository.filtrar(filtro, PageRequest.of(pageable.getPageNumber(), MAXIMO_POR_PAGINA));
+		}
 		return this.vendaRepository.filtrar(filtro, pageable);
 	}
 
@@ -74,8 +79,8 @@ public class VendaResource {
 	 * @return ResponseEntity<Venda>
 	 */
 	@PostMapping
-	public ResponseEntity<Venda> criar(@Valid @RequestBody final Venda venda, final Pageable pageable) {
-		Venda vendaSalvo = this.vendaService.salvar(venda, pageable);
+	public ResponseEntity<Venda> criar(@Validated(PostMapping.class) @RequestBody final Venda venda) {
+		Venda vendaSalvo = this.vendaService.salvar(venda);
 		return ResponseEntity.status(HttpStatus.CREATED).body(vendaSalvo);
 	}
 

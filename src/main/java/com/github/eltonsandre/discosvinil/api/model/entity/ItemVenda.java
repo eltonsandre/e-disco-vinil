@@ -55,7 +55,7 @@ public class ItemVenda implements Serializable {
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id_venda", nullable = false)
-	private Venda venda;
+	private Venda idVenda;
 
 	@Transient
 	public BigDecimal getValorTotal() {

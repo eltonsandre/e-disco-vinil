@@ -16,6 +16,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -42,15 +48,19 @@ public class Venda implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@JsonProperty(access = Access.READ_ONLY)
 	@Column(name = "data_venda", updatable = false)
 	private LocalDateTime dataVenda;
 
+	@NotEmpty(groups = { PostMapping.class }, message = "Escolha ao menos um item de venda")
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<ItemVenda> itens;
 
+	@JsonProperty(access = Access.READ_ONLY)
 	@Column(name = "total", nullable = false, precision = 10, scale = 2)
 	private BigDecimal total = BigDecimal.ZERO;
 
+	@JsonProperty(access = Access.READ_ONLY)
 	@Column(name = "total_cashback", nullable = false, precision = 10, scale = 2)
 	private BigDecimal totalCashback = BigDecimal.ZERO;
 
@@ -65,7 +75,7 @@ public class Venda implements Serializable {
 
 	@PostPersist
 	private void postPersist() {
-		this.itens.forEach(item -> item.setVenda(new Venda(this.id)));
+		this.itens.forEach(item -> item.setIdVenda(new Venda(this.id)));
 	}
 
 	/**

@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,6 +33,8 @@ import com.github.eltonsandre.discosvinil.api.service.CatalogoService;
 @RequestMapping("/catalogo")
 public class CatalogoResource {
 
+	private static final int MAXIMO_POR_PAGINA = 50;
+
 	@Autowired
 	private CatalogoService catalogoService;
 
@@ -48,9 +51,15 @@ public class CatalogoResource {
 	 */
 	@GetMapping
 	public Page<Disco> pesquisar(final DiscoFiltro filtro, final Pageable pageable) {
-		if (GeneroEnum.keyOf(org.apache.commons.lang3.StringUtils.lowerCase(filtro.getGenero())) == null) {
+		if (filtro.getGenero() != null
+				&& GeneroEnum.keyOf(org.apache.commons.lang3.StringUtils.lowerCase(filtro.getGenero())) == null) {
 			return null;
 		}
+
+		if (pageable.getPageSize() > MAXIMO_POR_PAGINA) {
+			return this.catalogoService.filtrar(filtro, PageRequest.of(pageable.getPageNumber(), MAXIMO_POR_PAGINA));
+		}
+
 		return this.catalogoService.filtrar(filtro, pageable);
 	}
 
